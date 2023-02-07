@@ -1,0 +1,55 @@
+import 'package:compras/PagC.dart';
+import 'package:flutter/material.dart';
+
+class PagI extends StatefulWidget {
+  @override
+  State<PagI> createState() => _PagIState();
+}
+
+class _PagIState extends State<PagI> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Center(
+                  child: Image.asset(
+                    "assets/img/logo.jpg",
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: 300,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(top: 100)),
+                ElevatedButton(
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (BuildContext) => PagC())
+                    );
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStatePropertyAll<Color>(Colors.pinkAccent),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(13.0)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white))),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
