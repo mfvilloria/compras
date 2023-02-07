@@ -21,7 +21,11 @@ class _PantallaCarritoState extends State<PantallaCarrito> {
             child: Container(
               child: carrito.items.length == 0
                   ? Center(
-                      child: Text("Carrito vacio"),
+                      child: Text("Carrito vacio",textAlign: TextAlign.center,
+                        style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,)
+                      ),
                     )
                   : Column(
                       children: <Widget>[
@@ -146,6 +150,33 @@ class _PantallaCarritoState extends State<PantallaCarrito> {
                                     style: TextStyle(
                                         color: Colors.black87, fontSize: 20),
                                   ),
+                                  onPressed: () {
+                                    carrito.vaciarCarrito();
+                                    setState(() {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return AlertDialog(
+                                            content: SingleChildScrollView(
+                                              child: ListBody(
+                                                children: const <Widget>[
+                                                  Text('Pago con exitó!', style: TextStyle(fontSize: 20), textAlign: TextAlign.center,),
+                                                ],
+                                              ),
+                                            ),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                child: const Text('OK'),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    });
+                                  },
                                 ),
                               ),
                               Container(
