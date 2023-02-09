@@ -33,7 +33,6 @@ class Carrito extends ChangeNotifier {
               id: old.id,
               nombre: old.nombre,
               precio: old.precio,
-              unidad: old.unidad,
               imagen: old.imagen,
               cantidad: old.cantidad + 1));
     } else {
@@ -43,7 +42,6 @@ class Carrito extends ChangeNotifier {
               id: producto_id,
               nombre: nombre,
               precio: precio,
-              unidad: unidad,
               imagen: imagen,
               cantidad: 1));
     }
@@ -61,7 +59,6 @@ class Carrito extends ChangeNotifier {
               id: old.id,
               nombre: old.nombre,
               precio: old.precio,
-              unidad: old.unidad,
               imagen: old.imagen,
               cantidad: old.cantidad + 1));
     }
@@ -76,7 +73,6 @@ class Carrito extends ChangeNotifier {
               id: old.id,
               nombre: old.nombre,
               precio: old.precio,
-              unidad: old.unidad,
               imagen: old.imagen,
               cantidad: old.cantidad - 1));
     } else {

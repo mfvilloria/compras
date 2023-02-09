@@ -1,5 +1,7 @@
 import 'package:compras/PagC.dart';
 import 'package:flutter/material.dart';
+import 'package:compras/db/op.dart';
+import 'package:compras/modelos/catalogo.dart';
 
 class PagI extends StatefulWidget {
   @override
@@ -30,9 +32,13 @@ class _PagIState extends State<PagI> {
                     color: Colors.white,
                   ),
                   onPressed: () {
+                    /*Op.insert(catalogo(
+                        nombre: "Mantequilla corporal Trendy",
+                        precio: 25000.00,
+                        imagen: "mantequilla.jpg",
+                        cantidad: 15));*/
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (BuildContext) => PagC())
-                    );
+                        MaterialPageRoute(builder: (BuildContext) => PagC()));
                   },
                   style: ButtonStyle(
                     backgroundColor:
