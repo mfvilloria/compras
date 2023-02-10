@@ -8,6 +8,7 @@ class Carrito extends ChangeNotifier {
   }
 
   int get numeroItems {
+    notifyListeners();
     return _items.length;
   }
 
@@ -45,10 +46,12 @@ class Carrito extends ChangeNotifier {
               imagen: imagen,
               cantidad: 1));
     }
+    notifyListeners();
   }
 
   void eliminarP(String producto_id) {
     _items.remove(producto_id);
+    notifyListeners();
   }
 
   void aumentarP(String producto_id) {
@@ -62,6 +65,7 @@ class Carrito extends ChangeNotifier {
               imagen: old.imagen,
               cantidad: old.cantidad + 1));
     }
+    notifyListeners();
   }
 
   void disminuirP(String producto_id) {
@@ -78,9 +82,11 @@ class Carrito extends ChangeNotifier {
     } else {
       _items.remove(producto_id);
     }
+    notifyListeners();
   }
 
   void vaciarCarrito(){
     _items={};
+    notifyListeners();
   }
 }
