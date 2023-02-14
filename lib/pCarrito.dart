@@ -1,8 +1,8 @@
 import 'dart:developer';
+import 'package:compras/db/op.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:compras/carrito/carrito.dart';
-import 'package:compras/db/cart.dart';
 
 import 'modelos/datoscart.dart';
 
@@ -24,9 +24,9 @@ class _PantallaCarritoState extends State<PantallaCarrito> {
   }
 
   _CargarDatos() async {
-    List<DatosCart> auxItem = await Cart.items();
-    int auxC = await Cart.consecutivo();
-    List<DatosCartI> auxItemI = await Cart.items_P();
+    List<DatosCart> auxItem = await Op.itemsP();
+    int auxC = await Op.consecutivo();
+    List<DatosCartI> auxItemI = await Op.items_P();
     setState(() {
       productos = auxItem;
       productosI = auxItemI;
@@ -209,12 +209,12 @@ class _PantallaCarritoState extends State<PantallaCarrito> {
                             });
                             log(pedido);
                             log(carrito.montoTotal.toString());
-                            Cart.insert(DatosCart(
+                            Op.insertP(DatosCart(
                               detalle: pedido,
                               ptotal: carrito.montoTotal,
                             ));
                             for (var item in carrito.items.values) {
-                              Cart.insertI(DatosCartI(
+                              Op.insertI(DatosCartI(
                                   numero: consec,
                                   id_producto: item.id,
                                   cantidad: item.cantidad,

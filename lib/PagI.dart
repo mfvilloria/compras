@@ -33,10 +33,10 @@ class _PagIState extends State<PagI> {
                   ),
                   onPressed: () {
                     /*Op.insert(catalogo(
-                        nombre: "Mantequilla corporal Trendy",
-                        precio: 25000.00,
-                        imagen: "mantequilla.jpg",
-                        cantidad: 15));*/
+                        nombre: "Delineador Cat",
+                        precio: 15000.00,
+                        imagen: "cateye.jpg",
+                        cantidad: 30));*/
                     Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (BuildContext) => PagC()));
                   },
